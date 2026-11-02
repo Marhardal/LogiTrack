@@ -31,3 +31,7 @@ C:\Users\Martin\source\repos\LogiTrack\obj\Debug\net10.0\refint\LogiTrack.dll
 C:\Users\Martin\source\repos\LogiTrack\obj\Debug\net10.0\LogiTrack.pdb
 C:\Users\Martin\source\repos\LogiTrack\obj\Debug\net10.0\LogiTrack.genruntimeconfig.cache
 C:\Users\Martin\source\repos\LogiTrack\obj\Debug\net10.0\ref\LogiTrack.dll
+C:\Users\Martin\source\repos\LogiTrack\bin\Debug\net10.0\xunit.abstractions.dll
+C:\Users\Martin\source\repos\LogiTrack\bin\Debug\net10.0\xunit.assert.dll
+C:\Users\Martin\source\repos\LogiTrack\bin\Debug\net10.0\xunit.core.dll
+C:\Users\Martin\source\repos\LogiTrack\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt

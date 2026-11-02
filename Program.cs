@@ -59,8 +59,10 @@ app.MapGet("getOrderSummary/{id}", (int id) =>
 
 app.MapPost("addItem", () =>
 {
-    var orders = new Order();
-    var result = orders.AddItem();
+    var order = new Order();
+    var result = order.AddItem( 1,
+        "Test Customer",
+        DateTime.Now);
     return result;
 });
 

@@ -11,9 +11,14 @@ public class Order
     public List<InventoryItem> Items { get; set; } = new List<InventoryItem>();
     public List<Order> orders { get; set; } = new List<Order>();
 
-    public bool AddItem()
+    public bool AddItem(int id, string customerName, DateTime? datePlaced = null)
     {
-        var order = new Order();
+        var order = new Order()
+        {
+            OrderId = id,
+            CustomerName = customerName,
+            DatePlaced = datePlaced ?? DateTime.Now
+        };
         orders.Add(order);
         return true;
     }
