@@ -1,3 +1,5 @@
+using LogiTrack;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -32,6 +34,43 @@ app.MapGet("/weatherforecast", () =>
     return forecast;
 })
 .WithName("GetWeatherForecast");
+
+app.MapGet("getItems", () =>
+{
+    var items = new InventoryItem();
+    items.DisplayInfo();
+    return items;
+});
+
+//Orders Calls
+app.MapGet("getOrders", () =>
+{
+    var orders = new Order();
+    var orderSummary = orders.GetOrders();
+    return orderSummary;
+});
+
+app.MapGet("getOrderSummary/{id}", (int id) =>
+{
+    var orders = new Order();
+    var orderSummary = orders.GetOrderSummary(id);
+    return orderSummary;
+});
+
+app.MapPost("addItem", () =>
+{
+    var orders = new Order();
+    var result = orders.AddItem();
+    return result;
+});
+
+app.MapDelete("removeItem/{id}", (int id) =>
+{
+    var orders = new Order();
+    var result = orders.RemoveItem(id);
+    return result;
+});
+
 
 app.Run();
 
