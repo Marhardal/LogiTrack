@@ -2,7 +2,7 @@
 
 public class Order
 {
-    public int OrderId { get; set; }
+    public int ID { get; set; }
 
     public string? CustomerName { get; set; }
 
@@ -15,7 +15,7 @@ public class Order
     {
         var order = new Order()
         {
-            OrderId = id,
+            ID = id,
             CustomerName = customerName,
             DatePlaced = datePlaced ?? DateTime.Now
         };
@@ -25,7 +25,7 @@ public class Order
 
     public bool RemoveItem(int id)
     {
-        var order = orders.FirstOrDefault(o => o.OrderId == id);
+        var order = orders.FirstOrDefault(o => o.ID == id);
         if (order != null)
         {
             orders.Remove(order);
@@ -35,7 +35,7 @@ public class Order
 
     public Order GetOrderSummary(int id)
     {
-        var order = orders.FirstOrDefault(o => o.OrderId == id);
+        var order = orders.FirstOrDefault(o => o.ID == id);
         return order ?? new Order();
     }
 

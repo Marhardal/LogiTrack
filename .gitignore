@@ -5,3 +5,7 @@
 bin/
 obj/
 bin/
+Migrations/
+
+# Local SQLite database and journal files
+logitrack.db*

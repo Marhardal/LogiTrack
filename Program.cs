@@ -2,9 +2,11 @@ using LogiTrack;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
+
+builder.Services.AddDbContext<DBContext>();
+
+builder.Services.AddControllers();
 
 var app = builder.Build();
 
@@ -16,63 +18,37 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseRouting();
+
+app.MapControllers();
+
 var summaries = new[]
 {
     "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
 };
 
-app.MapGet("/weatherforecast", () =>
+using (var context = new DBContext())
 {
-    var forecast =  Enumerable.Range(1, 5).Select(index =>
-        new WeatherForecast
-        (
-            DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-            Random.Shared.Next(-20, 55),
-            summaries[Random.Shared.Next(summaries.Length)]
-        ))
-        .ToArray();
-    return forecast;
-})
-.WithName("GetWeatherForecast");
+    // Add test inventory item if none exist
+    if (!context.InventoryItems.Any())
+    {
+        context.InventoryItems.Add(new InventoryItem
+        {
+            Name = "Pallet Jack",
+            Quantity = 12,
+            Location = "Warehouse A"
+        });
 
-app.MapGet("getItems", () =>
-{
-    var items = new InventoryItem();
-    items.DisplayInfo();
-    return items;
-});
+        context.SaveChanges();
+    }
 
-//Orders Calls
-app.MapGet("getOrders", () =>
-{
-    var orders = new Order();
-    var orderSummary = orders.GetOrders();
-    return orderSummary;
-});
-
-app.MapGet("getOrderSummary/{id}", (int id) =>
-{
-    var orders = new Order();
-    var orderSummary = orders.GetOrderSummary(id);
-    return orderSummary;
-});
-
-app.MapPost("addItem", () =>
-{
-    var order = new Order();
-    var result = order.AddItem( 1,
-        "Test Customer",
-        DateTime.Now);
-    return result;
-});
-
-app.MapDelete("removeItem/{id}", (int id) =>
-{
-    var orders = new Order();
-    var result = orders.RemoveItem(id);
-    return result;
-});
-
+    // Retrieve and print inventory to confirm
+    var items = context.InventoryItems.ToList();
+    foreach (var item in items)
+    {
+        item.DisplayInfo(); // Should print: Item: Pallet Jack | Quantity: 12 | Location: Warehouse A
+    }
+}
 
 app.Run();
 

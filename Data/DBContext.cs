@@ -1,0 +1,19 @@
+﻿using Microsoft.EntityFrameworkCore;
+
+namespace LogiTrack;
+
+public class DBContext : DbContext
+{
+    public DbSet<InventoryItem> InventoryItems { get; set; }
+    public DbSet<Order> Orders { get; set; }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<Order>()
+            .HasMany(order => order.Items)
+            .WithOne(item => item.Order)
+            .HasForeignKey(item => item.OrderID);
+    }
+
+    protected override void OnConfiguring(DbContextOptionsBuilder options) => options.UseSqlite("Data Source=logitrack.db");
+}
