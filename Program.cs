@@ -1,10 +1,18 @@
 using LogiTrack;
+using Microsoft.AspNetCore.Identity;
+using Scalar.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddOpenApi();
 
-builder.Services.AddDbContext<DBContext>();
+builder.Services.Configure<ScalarOptions>(options =>
+{
+    options.WithOpenApiRoutePattern("/openapi/v1.json");
+});
+
+builder.Services.AddIdentity<IdentityUser, IdentityRole>()
+    .AddEntityFrameworkStores<DBContext>();
 
 builder.Services.AddControllers();
 
@@ -14,6 +22,7 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
+    app.MapScalarApiReference();
 }
 
 app.UseHttpsRedirection();

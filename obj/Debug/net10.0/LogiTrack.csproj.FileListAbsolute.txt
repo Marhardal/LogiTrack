@@ -280,3 +280,7 @@
 /home/marhardal/Documents/repos/LogiTrack/obj/Debug/net10.0/LogiTrack.pdb
 /home/marhardal/Documents/repos/LogiTrack/obj/Debug/net10.0/LogiTrack.genruntimeconfig.cache
 /home/marhardal/Documents/repos/LogiTrack/obj/Debug/net10.0/ref/LogiTrack.dll
+/home/marhardal/Documents/repos/LogiTrack/bin/Debug/net10.0/Scalar.AspNetCore.dll
+/home/marhardal/Documents/repos/LogiTrack/bin/Debug/net10.0/Scalar.AspNetCore.Microsoft.dll
+/home/marhardal/Documents/repos/LogiTrack/bin/Debug/net10.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+/home/marhardal/Documents/repos/LogiTrack/bin/Debug/net10.0/EFCore.Tools.dll
