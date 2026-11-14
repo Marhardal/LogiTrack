@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 [Route("api/[controller]")]
 [ApiController]
+[Microsoft.AspNetCore.Authorization.Authorize]
 public class OrdersController : ControllerBase
 {
     public DBContext _context { get; set; }

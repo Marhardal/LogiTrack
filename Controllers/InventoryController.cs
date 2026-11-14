@@ -1,10 +1,12 @@
 using LogiTrack;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 [Route("api/[controller]")]
 [ApiController]
+[Authorize]
 public class ItemsController : ControllerBase
 {
 
@@ -45,6 +47,7 @@ public class ItemsController : ControllerBase
     }
 
     [HttpPost]
+    [Authorize(Roles = "Manager")]
     public IActionResult AddItem(InventoryItem item)
     {
         _context.InventoryItems.Add(item);

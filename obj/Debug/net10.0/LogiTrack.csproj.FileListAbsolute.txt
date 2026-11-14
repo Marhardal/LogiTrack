@@ -284,3 +284,12 @@
 /home/marhardal/Documents/repos/LogiTrack/bin/Debug/net10.0/Scalar.AspNetCore.Microsoft.dll
 /home/marhardal/Documents/repos/LogiTrack/bin/Debug/net10.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 /home/marhardal/Documents/repos/LogiTrack/bin/Debug/net10.0/EFCore.Tools.dll
+/home/marhardal/Documents/repos/LogiTrack/bin/Debug/net10.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
+/home/marhardal/Documents/repos/LogiTrack/bin/Debug/net10.0/Microsoft.Bcl.Cryptography.dll
+/home/marhardal/Documents/repos/LogiTrack/bin/Debug/net10.0/Microsoft.IdentityModel.Abstractions.dll
+/home/marhardal/Documents/repos/LogiTrack/bin/Debug/net10.0/Microsoft.IdentityModel.JsonWebTokens.dll
+/home/marhardal/Documents/repos/LogiTrack/bin/Debug/net10.0/Microsoft.IdentityModel.Logging.dll
+/home/marhardal/Documents/repos/LogiTrack/bin/Debug/net10.0/Microsoft.IdentityModel.Protocols.dll
+/home/marhardal/Documents/repos/LogiTrack/bin/Debug/net10.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+/home/marhardal/Documents/repos/LogiTrack/bin/Debug/net10.0/Microsoft.IdentityModel.Tokens.dll
+/home/marhardal/Documents/repos/LogiTrack/bin/Debug/net10.0/System.IdentityModel.Tokens.Jwt.dll
